@@ -33,7 +33,17 @@ class ViewController: UIViewController {
         println(userCoins)
 
         let coinPairs = CoinPairsModel(coins: userCoins, coinPairDiff: coinPairDiff)
-        coinPairs.findCoinPairs()
+        let foundCoinPairs = coinPairs.findCoinPairs()
+
+        foundCoinPairsAlert(foundCoinPairs)
+    }
+
+    func foundCoinPairsAlert(coinPairs: Int) {
+        var foundCoinPairsAlert: UIAlertView = UIAlertView()
+
+        foundCoinPairsAlert.message = "Found \(coinPairs) coin pair(s)."
+        foundCoinPairsAlert.addButtonWithTitle("Yippee!")
+        foundCoinPairsAlert.show()
     }
 
     override func viewDidLoad() {
